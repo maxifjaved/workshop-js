@@ -1,110 +1,80 @@
-// Your code will go here
+/**
+ * form  --> submit, id, listner(submit)
+ *      fieldset
+ *          formgroup
+ *              input --> value, class, style, type, name, placeholder
+ *
+ *
+ *          button --> type,
+ *
+ *
+ */
 
-var form = document.createElement('form')
-form.setAttribute('style', 'background: red')
-form.setAttribute('class', 'b1 b2 b3')
+function setElementAttributes(element, name, value) {
+    element.setAttribute(name, value)
+}
 
-var nameInput = document.createElement('input')
-form.appendChild(nameInput)
+function createElement(tag, parent) {
+    var cTag = document.createElement(tag)
 
-var emailInput = document.createElement('input')
-emailInput.type = 'email'
-form.appendChild(emailInput)
+    if (parent) {
+        parent.append(cTag)
+    }
 
+    return cTag;
+}
 
-var formBtn = document.createElement('button')
-formBtn.type = 'submit'
-formBtn.innerText = 'Submit'
-form.appendChild(formBtn)
+var wrapper = document.getElementById('main')
+var form = createElement('form', wrapper)
 
-document.body.appendChild(form)
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    // debugger
+})
 
+setElementAttributes(form, 'class', 'form fo bar baz')
+setElementAttributes(form, 'id', 'fo-form')
+setElementAttributes(form, 'data-type', 'login')
 
-
-// var log = console.log
-
-// function changeText(id, property, value) {
-//    var field = document.getElementById(id);
-//    field[property] = value;
-// }
-
-// // Scopes
-// function fn1() {
-//    return ' i am return fn1';
-// }
-
-// function fn2() {
-//    return 'return from fn2';
-// }
-
-// function fn3() {
-//    return 'return from fn3';
-// }
+var fieldset = createElement('fieldset', form)
 
 
-// // var varFn1 = fn1();
+var formGroup0 = createElement('div', fieldset)
+setElementAttributes(formGroup0, 'class', 'form-group')
 
-// // var myFunction = function () { //scope 1
-// //    var varFn2 = fn2();
-// //    var myFunction2 = function () { //scope 2
-// //       var varFn3 = fn3();
+var nameInput = createElement('input', formGroup0)
+setElementAttributes(nameInput, 'class', 'form-control')
 
-// //       console.table({ varFn1, varFn2, varFn3 })
-// //    }//scope 2 end
+var formGroup1 = createElement('div', fieldset)
+setElementAttributes(formGroup1, 'class', 'form-group')
 
-// //    myFunction2()
-// //    myFunction2()
-// // } //scope 1 end
-
-// // myFunction()
-
-// // myFunction()
-
-// // Closures
-
-// // var arrayOne = [];
+var emailInput = createElement('input', formGroup1)
+setElementAttributes(emailInput, 'class', 'form-control')
 
 
-// // var varFn1 = fn1();
+var formGroup2 = createElement('div', fieldset)
+setElementAttributes(formGroup2, 'class', 'form-group')
 
-// // var myFunction = function () {
-// //    var varFn2 = fn2();
-// //    arrayOne.push(function () {
-// //       var varFn3 = fn3();
-// //       console.log({ varFn1, varFn2, varFn3 })
-// //    })
-// // }
-
-// // myFunction()
-// // arrayOne[0]()
-// // arrayOne[0]()
-// // myFunction()
-
-// // log(arrayOne.length)
-// // arrayOne[1]()
-
-// // This
-
-// // var obj = {
-// //    fn: function (a, b) {
-// //       console.log(this);
-// //    }
-// // }
-
-// // obj.fn(3, 4);
-
-// // var fn = function (one, two) {
-// //    console.log(one, two);
-// // };
-
-// // var r = {}, g = {}, b = {};
-// // fn(g, b);
+var passwordInput = createElement('input', formGroup2)
+setElementAttributes(passwordInput, 'class', 'form-control')
 
 
-// // var fn = function (one, two) {
-// //    console.log(this, one, two);
-// // };
-// // var r = { r: "red" }, g = { g: "green" }, b = { b: "blue" };
+var formGroup3 = createElement('div', fieldset)
+setElementAttributes(formGroup3, 'class', 'form-group')
 
-// // r.method = fn;
-// // r.method(g, b);
+var confirmPasswordInput = createElement('input', formGroup3)
+setElementAttributes(confirmPasswordInput, 'class', 'form-control')
+
+
+var submitButton = createElement('button', fieldset)
+submitButton.innerText = 'Submit'
+// setElementAttributes(submitButton, 'text', 'Submit')
+setElementAttributes(submitButton, 'type', 'submit')
+
+
+
+// var fieldset = createElement('fieldset', form)
+// var fieldset = createElement('fieldset', form)
+// var fieldset = createElement('fieldset', form)
+// var fieldset = createElement('fieldset', form)
+// // createElement(fieldset, form)
